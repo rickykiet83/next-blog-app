@@ -1,6 +1,7 @@
 import AllPosts from '../../components/posts/all-posts';
+import { PostModel } from '../../models/post.model';
 
-const DUMMY_POSTS = [
+const DUMMY_POSTS: PostModel[] = [
   {
     title: 'Getting Started with NextJS',
     image: 'getting-started-nextjs.png',

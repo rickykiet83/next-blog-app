@@ -3,13 +3,14 @@ import React, { Fragment } from 'react';
 import FeaturedPosts from '../components/home-page/featured-posts';
 import { GetStaticProps } from 'next';
 import Hero from '../components/home-page/hero';
+import { PostModel } from '../models/post.model';
 import { getFeaturedPosts } from './../lib/post-util';
 
-export default function HomePage(props: any) {
+export default function HomePage({ posts }: { posts: PostModel[] }) {
   return (
     <Fragment>
       <Hero />
-      <FeaturedPosts posts={props.posts} />
+      <FeaturedPosts posts={posts} />
     </Fragment>
   );
 }

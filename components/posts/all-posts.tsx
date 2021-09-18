@@ -1,11 +1,11 @@
 import { GetStaticProps } from 'next';
+import { PostModel } from '../../models/post.model';
 import PostsGrid from './posts-grid';
 import React from 'react';
 import classes from './all-posts.module.css';
 import { getAllPosts } from '../../lib/post-util';
 
-function AllPosts(props: any) {
-  const { posts } = props;
+function AllPosts({ posts }: { posts: PostModel[] }) {
   return (
     <section className={classes.posts}>
       <h1>All Posts</h1>
@@ -13,14 +13,5 @@ function AllPosts(props: any) {
     </section>
   );
 }
-
-export const getStaticProps: GetStaticProps = async (context) => {
-  const allPosts = getAllPosts();
-  return {
-    props: {
-      posts: allPosts,
-    },
-  };
-};
 
 export default AllPosts;

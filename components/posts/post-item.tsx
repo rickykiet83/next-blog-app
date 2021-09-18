@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { PostModel } from '../../models/post.model';
 import classes from './post-item.module.css';
 
-function PostItem(props: any) {
-  const { title, image, excerpt, date, slug } = props.post;
+function PostItem({ post }: { post: PostModel }) {
+  const { title, image, excerpt, date, slug } = post;
 
   const formattedDate = new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',
