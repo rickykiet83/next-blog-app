@@ -2,11 +2,16 @@ import PostItem from './post-item';
 import classes from './posts-grid.module.css';
 
 function PostsGrid(props: any) {
+  const { posts } = props;
   return (
     <ul className={classes.grid}>
-      {props.map((p) => (
-        <PostItem />
-      ))}
+      {posts.map((p: any) => {
+        return (
+          <li key={p.id}>
+            <PostItem />
+          </li>
+        );
+      })}
     </ul>
   );
 }
