@@ -4,5 +4,5 @@ export interface PostModel {
   excerpt: string;
   date: string;
   slug: string;
-  content?: string;
+  content: string;
 }

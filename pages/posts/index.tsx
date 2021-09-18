@@ -1,35 +1,20 @@
 import AllPosts from '../../components/posts/all-posts';
+import { GetStaticProps } from 'next';
 import { PostModel } from '../../models/post.model';
+import { getAllPosts } from '../../lib/post-util';
 
-const DUMMY_POSTS: PostModel[] = [
-  {
-    title: 'Getting Started with NextJS',
-    image: 'getting-started-nextjs.png',
-    excerpt:
-      'Next.js provides a solution to all of the above problems. But more importantly, it puts you and your team in the pit of success when building React applications',
-    date: '2021-9-17',
-    slug: 'getting-started-with-nextjs',
-  },
-  {
-    title: 'Getting Started with NextJS',
-    image: 'getting-started-nextjs.png',
-    excerpt:
-      'Next.js provides a solution to all of the above problems. But more importantly, it puts you and your team in the pit of success when building React applications',
-    date: '2021-9-17',
-    slug: 'getting-started-with-nextjs2',
-  },
-  {
-    title: 'Getting Started with NextJS',
-    image: 'getting-started-nextjs.png',
-    excerpt:
-      'Next.js provides a solution to all of the above problems. But more importantly, it puts you and your team in the pit of success when building React applications',
-    date: '2021-9-17',
-    slug: 'getting-started-with-nextjs3',
-  },
-];
-
-function AllPostsPage() {
-  return <AllPosts posts={DUMMY_POSTS} />;
+function AllPostsPage({ posts }: { posts: PostModel[] }) {
+  return <AllPosts posts={posts} />;
 }
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const allPosts = getAllPosts();
+
+  return {
+    props: {
+      posts: allPosts,
+    },
+  };
+};
 
 export default AllPostsPage;

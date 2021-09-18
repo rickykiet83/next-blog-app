@@ -1,9 +1,7 @@
-import { GetStaticProps } from 'next';
 import { PostModel } from '../../models/post.model';
 import PostsGrid from './posts-grid';
 import React from 'react';
 import classes from './all-posts.module.css';
-import { getAllPosts } from '../../lib/post-util';
 
 function AllPosts({ posts }: { posts: PostModel[] }) {
   return (
