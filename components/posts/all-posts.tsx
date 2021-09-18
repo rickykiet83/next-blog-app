@@ -1,6 +1,8 @@
+import { GetStaticProps } from 'next';
 import PostsGrid from './posts-grid';
 import React from 'react';
 import classes from './all-posts.module.css';
+import { getAllPosts } from '../../lib/post-util';
 
 function AllPosts(props: any) {
   const { posts } = props;
@@ -11,5 +13,14 @@ function AllPosts(props: any) {
     </section>
   );
 }
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const allPosts = getAllPosts();
+  return {
+    props: {
+      posts: allPosts,
+    },
+  };
+};
 
 export default AllPosts;

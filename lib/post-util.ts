@@ -4,7 +4,7 @@ import path from 'path';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
-function getPostData(fileName: string) {
+export function getPostData(fileName: string) {
   const filePath = path.join(postsDirectory, fileName);
   const fileContent = fs.readFileSync(filePath, 'utf-8');
   const { data, content } = matter(fileContent);
@@ -20,7 +20,7 @@ function getPostData(fileName: string) {
   return postData;
 }
 
-function getAllPosts() {
+export function getAllPosts() {
   const postFiles = fs.readdirSync(postsDirectory);
 
   const allPosts = postFiles.map(postFile => {
@@ -33,7 +33,7 @@ function getAllPosts() {
 
 }
 
-function getFeaturedPosts() {
+export function getFeaturedPosts() {
   const allPosts = getAllPosts();
   const featuredPosts = allPosts.filter((p: any) => p.isFeatured);
   return featuredPosts;
