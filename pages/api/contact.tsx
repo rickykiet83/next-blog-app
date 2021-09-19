@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Data = {
   message: string;
+  data?: {} | null;
 };
 
 export default function handler(
@@ -13,7 +14,7 @@ export default function handler(
 
     if (
       !email ||
-      email.includes('@') ||
+      !email.includes('@') ||
       !name ||
       name.trim() === '' ||
       !message ||
@@ -31,6 +32,8 @@ export default function handler(
     };
     console.log(newMessage);
 
-    res.status(201).json({ message: 'Successfully stored message!' });
+    res
+      .status(201)
+      .json({ message: 'Successfully stored message!', data: newMessage });
   }
 }
