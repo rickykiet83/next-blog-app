@@ -1,12 +1,21 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { getPostData, getPostsFiles } from '../../lib/post-util';
 
+import Head from 'next/head';
 import PostContent from '../../components/posts/post-detail/post-content';
 import { PostModel } from '../../models/post.model';
 import React from 'react';
 
 function PostDetailPage({ post }: { post: PostModel }) {
-  return <PostContent post={post} />;
+  return (
+    <>
+      <Head>
+        <title>{post.title}</title>
+        <meta name='description' content={post.excerpt}></meta>
+      </Head>
+      <PostContent post={post} />
+    </>
+  );
 }
 
 export const getStaticProps: GetStaticProps = async (context: any) => {
