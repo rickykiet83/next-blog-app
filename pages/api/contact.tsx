@@ -1,10 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 import { MongoClient } from 'mongodb';
-import config from './../../config/prod.json';
+import config from './../../config/default.json';
 
-// 2d2suVhhrAxiwmNg
-// nextblog
 type Data = {
   message: string;
   data?: any;
