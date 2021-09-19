@@ -1,0 +1,3 @@
+{
+  "dbConnectionString": "mongodb+srv://nextblog:2d2suVhhrAxiwmNg@cluster0.ihq2s.mongodb.net/next-blog?retryWrites=true&w=majority"
+}
