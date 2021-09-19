@@ -1,5 +1,8 @@
+import ContactForm from '../components/contact/contact-fomr';
+import React from 'react';
+
 function ContactPage() {
-  return <div>Enter</div>;
+  return <ContactForm />;
 }
 
 export default ContactPage;
